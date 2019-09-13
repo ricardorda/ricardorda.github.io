@@ -1,16 +1,17 @@
 ---
-title: "Data science links"
-date: 2019-09-10
-tags: [hello, world, python, ml]
+title: "Hello World 2"
+date: 2019-09-11
+tags: [python, ml, c#]
 author_profile: true
-excerpt: "tipo tags, entender, melhor"
+excerpt: "entender melhor"
 ---
 
 # Head 1
 
-# Head 2 Hello World
+## Head 2 Hello World
 
-** Text here **
+*** Text here ***
+ABA
 '''python
 import pandas as pd
 print('Hello World')
