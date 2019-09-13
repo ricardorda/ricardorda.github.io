@@ -1,4 +1,5 @@
 ---
+layout: posts
 title: "Hello World 2"
 date: 2019-09-11
 tags: [python, ml, c#]
@@ -10,8 +11,16 @@ excerpt: "entender melhor"
 
 ## Head 2 Hello World
 
-*** Text here ***
-ABA
+#### Head 4 Hello World
+
+**bold here**
+<Br>
+_italic here_
+
+-ABA 2
+-ABA 3
+-ABA 4
+
 '''python
 import pandas as pd
 print('Hello World')
