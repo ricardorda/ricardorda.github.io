@@ -4,7 +4,7 @@ title: "Relatório de Incidentes do ServiceNow com PowerBI - Parte 1"
 date: 2019-12-28
 tags: [Power BI]
 author_profile: false
-excerpt: "Acessando API do ServiceNow pelo PowerBI"
+excerpt: "Acessando a API do ServiceNow pelo PowerBI"
 ---
 
 Nesse série de posts iremos criar um relatório de acompanhamento dos incidentes do ServiceNow no PowerBI.
