@@ -111,7 +111,7 @@ no menu _**Modeling > Sort By Column**_ escolha a coluna _**YearMonth**_
 ![Criando Matrix com números mensais](/assets/images/posts/PowerBIServiceNow15.png)
 
 
-
+Essa é a estrutura básica, novos relatórios podem ser feitos de acordo com a necessidade.
 
 
 
