@@ -1,8 +1,10 @@
 ---
 layout: post
-title: "Relatório de Incidentes do ServiceNow com Power BI"
+title: "Criando Um Relatório de Incidentes do ServiceNow Com Power BI"
 date: 2019-12-28
 tags: [Power BI]
+categories: [Power BI]
+
 ---
 
 Nesse post iremos criar um relatório de acompanhamento dos incidentes do ServiceNow no Power BI.
