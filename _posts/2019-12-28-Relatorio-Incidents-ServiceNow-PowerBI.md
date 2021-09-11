@@ -10,18 +10,19 @@ categories: [Power BI]
 Nesse post iremos criar um relatório de acompanhamento dos incidentes do ServiceNow no Power BI.
 
 ## Acessando a API do ServiceNow
+
 O ServiceNow possui uma API Rest onde podemos ler as informações desejadas. Abaixo link com os detalhes da API:
 
 [https://developer.servicenow.com/app.do#!/rest_api_doc?v=madrid&id=c_TableAPI](https://developer.servicenow.com/app.do#!/rest_api_doc?v=madrid&id=c_TableAPI)
 
-
 No meu caso desejo acompanhanhar os tickets de apenas um Assignment Group, então vou utilizar os filtros abaixo:
+
 - assignment_group=Nome do Grupo desejado
 - sysparm_display_value=true (*Exibe o nome dos recursos ao invés do ID*)
 - sysparm_exclude_reference_link=true (*Remove o link dos detalhes do conteúdo*)
 
+Desse modo a URL final será:
 
-Desse modo a URL final será:<br/>
 [https://sua-url-servicenow/api/now/table/incident?sysparm_display_value=true&sysparm_exclude_reference_link=true&assignment_group=Nome-do-grupo](https://sua-url-servicenow/api/now/table/incident?sysparm_display_value=true&sysparm_exclude_reference_link=true&assignment_group=Nome-do-grupo)
 
 ## Conectando na API usando o Power BI
@@ -49,8 +50,6 @@ Converta as colunas _**Opened_At**_ e _**Closed_At**_ para DateTime e mude o nom
 De volta para a visão de relatórios crie uma Matrix para visualizar os dados.
 ![Criando relatório para visualizar os dados](/assets/images/posts/PowerBIServiceNow8.png)
 
-
-
 ## Criando Uma Dimensão de Calendário
 
 Precisamos criar uma nova dimensão Calendário para que possamos realizar as diversas comparações de data.
@@ -58,7 +57,8 @@ Precisamos criar uma nova dimensão Calendário para que possamos realizar as di
 ![Criando tabela Calendario](/assets/images/posts/PowerBIServiceNow9.png)
 
 Abaixo código DAX para criar a tabela:
-```
+
+```powerbi
 Calendario = 
 ADDCOLUMNS (
 CALENDAR (DATE(YEAR(MIN(Incidentes[opened_at]));1;1); DATE(YEAR(MAX(Incidentes[closed_at]));12;31));
@@ -76,7 +76,6 @@ CALENDAR (DATE(YEAR(MIN(Incidentes[opened_at]));1;1); DATE(YEAR(MAX(Incidentes[c
 )
 ```
 
-
 ## Criando o Relacionamento
 
 Abra novamente o Query Editor e crie as colunas Opened_Date e Closed_Date como apenas data.
@@ -87,6 +86,7 @@ Na visão model relacione as colunas Opened_Date e Closed_Date com a Date da tab
 
 Crie as medidas abaixo para calcularmos os números de tickets abertos, fechados e o backlog.
 ![Criando medidas customizadas](/assets/images/posts/PowerBIServiceNow12.png)
+
 ```
 Opened Tickets = CALCULATE(COUNTA(Incidentes[Number]); USERELATIONSHIP(Calendario[Date]; Incidentes[Opened_Date]))
 Closed Tickets = CALCULATE(COUNTA(Incidentes[Closed_Date]); USERELATIONSHIP(Calendario[Date]; Incidentes[Closed_Date]))
@@ -97,9 +97,7 @@ Opened Tickets LY = CALCULATE([Opened Tickets]; SAMEPERIODLASTYEAR(Calendario[Da
 Closed Tickets LY = CALCULATE([Closed Tickets];SAMEPERIODLASTYEAR(Calendario[Date]))
 ```
 
-
 ## Criando o Relatório
-
 
 Crie uma Matrix e coloque a coluna _**MonthYear**_ da tabela Calendario no campo _**Columns**_ e as medidas _**Opened Tickets, Closed Tickets e Backlog**_ no campo _**Values**_
 ![Criando Matrix com números mensais](/assets/images/posts/PowerBIServiceNow13.png)
@@ -111,15 +109,4 @@ Como a coluna _**MonthYear**_ é um texto, por padrão ela será ordenada alfabe
 no menu _**Modeling > Sort By Column**_ escolha a coluna _**YearMonth**_
 ![Criando Matrix com números mensais](/assets/images/posts/PowerBIServiceNow15.png)
 
-
 Essa é a estrutura básica, novos relatórios podem ser feitos de acordo com a necessidade.
-
-
-
-
-
-
-
-
-
-
