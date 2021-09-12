@@ -1,12 +1,11 @@
 ---
 layout: post
-title: "GIT"
-date: 2021-07-25
+title: "Comandos Úteis GIT"
+date: 2021-09-12
 tags: [git]
 categories: [git]
 
 ---
-# GIT
 
 ## **Fontes de estudo**
 
