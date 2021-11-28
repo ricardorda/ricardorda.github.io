@@ -7,8 +7,6 @@ categories: [Books]
 
 ---
 
-## **Review The Pragmatic Programmer**
-
 <https://www.amazon.com.br/Pragmatic-Programmer-journey-mastery-Anniversary-ebook/dp/B07VRS84D1/>
 
 \
