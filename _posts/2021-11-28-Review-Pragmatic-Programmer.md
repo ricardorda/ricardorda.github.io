@@ -19,4 +19,5 @@ As dicas que mais gostei são:
 - Preferir o uso de Contratos (Interfaces) ao invés de herança, isso diminui o acoplamento
 - Técnicas de Refactor, recomendado o livro [Refactoring do Martin Fowler](https://www.amazon.com.br/Refactoring-Improving-Existing-Addison-Wesley-Signature-ebook/dp/B07LCM8RG2/)
 - Test Driven Development ajuda a criar designs menos acoplados
-- Guiar a criação dos Unit Tests garantindo a cobertura dos contratos. Também criar Property base tests que garantem que propriedades invariantes não mudem após passar pelas funções.
+- Guiar a criação dos Unit Tests garantindo a cobertura dos contratos. Também criar Property base tests que garantem que propriedades invariantes não mudem após passar pelas funções
+- Entender as expectativas do usuário quanto a entrega, eles recomendam fazer a pergunta "Como você saberá que tivemos sucesso após a conclusão deste projeto?", com base na resposta podemos verificar se estamos seguindo o mesmo caminho
